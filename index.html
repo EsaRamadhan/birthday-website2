@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ffccff, #cc99ff);
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .header {
+            padding: 50px 20px;
+            background-color: #ffffffcc;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff33cc;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px 0;
+            background-color: #ff66cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+
+        .button:hover {
+            background-color: #cc0099;
+        }
+
+        .image {
+            margin-top: 30px;
+            
+        }
+
+        img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+        }
+
+        .balloons {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            background: radial-gradient(circle, #ff66cc 0%, #cc0099 100%);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+    @keyframes float {
+        0% {
+            transform: translateY(100vh);
+        }
+        100% {
+            transform: translateY(-100vh);
+        }
+    }    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Happy Birthday, AYAAA!</h1>
+            <p>You make every moment so special. Today, it's your turn to shine!</p>
+            <p>Hi, it's your special day, and i just wanted to remind you how amazing you are. Wishing you all the love, laughter, and happiness. You deserve it! 🎉</p>
+            <a href="#" class="button" id="surpriseButton">Click for a Surprise!</a>
+        </div>
+
+        <div id="message" class="image">
+            <img src="ayaa.jpg" alt="A special birthday image">
+            <p>Cheers to a year filled with unforgettable adventures, cherished memories, and dreams coming true. You mean the world to me, and I’m so lucky to have you by my side. 💖</p>
+            <p>Happy Birthday to the one who makes my life so much brighter and more beautiful every day. Love you always and forever!</p>
+        </div>
+    </div>
+    <audio id="birthdaySong" src="ayabirthday.mp3"></audio>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const button = document.getElementById("surpriseButton");
+            const message = document.getElementById("message");
+            const audio = document.getElementById("birthdaySong");
+
+            const createBalloon = () => {
+                const balloon = document.createElement("div");
+                balloon.className = "balloons";
+                balloon.style.left = Math.random() * 100 + "vw";
+                document.body.appendChild(balloon);
+
+                setTimeout(() => {
+                    balloon.remove();
+                }, 6000); 
+            };
+
+            button.addEventListener("click", (e) => {
+                e.preventDefault();
+                audio.play();
+                button.textContent = "YEYY HBD SEPOOH SAYANG I LOVE YOU TILL THE LAST DAY OF MINE AYA";
+                button.style.pointerEvents = "none";
+
+                setInterval(createBalloon, 300);
+            
+            });
+        });
+    </script>
+</body>
+</html>
